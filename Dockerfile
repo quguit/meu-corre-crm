@@ -6,7 +6,7 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # 3. Copia o arquivo de dependências para o container
-COPY requirements.txt .
+COPY backend/requirements.txt .
 
 # 4. Instala as dependências
 RUN pip install --no-cache-dir -r requirements.txt

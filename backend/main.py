@@ -21,6 +21,38 @@ def get_db():
     finally:
         db.close()
 
+@app.get("/clientes/{cliente_id}", response_model=schemas.Cliente)
+def read_one_cliente(cliente_id: int, db: Session = Depends(get_db)):
+    """
+    Busca os dados de um cliente específico pelo ID.
+    """
+    db_cliente = crud.get_cliente(db, cliente_id=cliente_id)
+    if db_cliente is None:
+        raise HTTPException(status_code=404, detail="Cliente não encontrado")
+    return db_cliente
+
+
+@app.put("/clientes/{cliente_id}", response_model=schemas.Cliente)
+def update_one_cliente(cliente_id: int, cliente: schemas.ClienteUpdate, db: Session = Depends(get_db)):
+    """
+    Atualiza as informações de um cliente existente.
+    """
+    updated_cliente = crud.update_cliente(db, cliente_id=cliente_id, cliente_update=cliente)
+    if updated_cliente is None:
+        raise HTTPException(status_code=404, detail="Cliente não encontrado")
+    return updated_cliente
+
+
+@app.delete("/clientes/{cliente_id}", response_model=schemas.Cliente)
+def delete_one_cliente(cliente_id: int, db: Session = Depends(get_db)):
+    """
+    Deleta um cliente do banco de dados.
+    """
+    deleted_cliente = crud.delete_cliente(db, cliente_id=cliente_id)
+    if deleted_cliente is None:
+        raise HTTPException(status_code=404, detail="Cliente não encontrado")
+    return deleted_cliente
+
 @app.post("/clientes/", response_model=schemas.Cliente, status_code=201)
 def create_new_cliente(cliente: schemas.ClienteCreate, db: Session = Depends(get_db)):
     """

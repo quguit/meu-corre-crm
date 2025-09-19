@@ -17,3 +17,10 @@ class ClienteUpdate(ClienteBase):
 
 class config:
     orm_mode=True
+
+class ClienteUpdate(BaseModel):
+    nome: Optional[str] = None
+    telefone: Optional[str] = None
+    email: Optional[EmailStr] = None
+    cpf: Optional[str] = None
+    

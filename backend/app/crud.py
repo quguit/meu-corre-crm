@@ -1,5 +1,6 @@
+from . import models
 from sqlalchemy.orm import Session
-from . import models, schemas
+from . import schemas
 
 def get_clientes(db: Session, skip: int = 0, limit: int = 100):
     """Retorna todos os clientes, com paginação"""

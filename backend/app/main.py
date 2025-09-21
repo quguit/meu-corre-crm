@@ -1,8 +1,9 @@
+from . import crud, models
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
 
-from . import crud, models, schemas
+from . import schemas
 from .database import SessionLocal, engine
 
 # Cria as tabelas no banco (se não existirem)

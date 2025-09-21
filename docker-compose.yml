@@ -1,34 +1,32 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  # Serviço da API (FastAPI)
   api:
     build:
-      context: .
+      context: ./backend
       dockerfile: Dockerfile
     container_name: meu_corre_api
     ports:
-      - "8010:8010"   # usei 8010 (sem 0 à esquerda, pode dar erro em YAML)
-    volumes: # mapeia código local para live-reloading
-      - ./backend:/app
-    environment: # variáveis ambiente
-      - DATABASE_URL=postgresql://user:password@db:5432/mydatabase
+      - "8000:8000" # API acessível em http://localhost:8000
+    volumes:
+      - ./backend/app:/app/app   # Hot-reload no código
+    environment:
+      - DATABASE_URL=postgresql://user:password@db:5432/meucorre
     depends_on:
       - db
 
-  # Serviço do Banco de Dados (PostgreSQL)
   db:
     image: postgres:15
     container_name: meu_corre_db
+    restart: always
     environment:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=mydatabase
+      - POSTGRES_DB=meucorre
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-# Volume persistente do banco
 volumes:
   postgres_data:

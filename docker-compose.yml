@@ -1,34 +1,34 @@
 version: '3.8'
 
 services:
-  #serviço da API (possivelmente FastAPI)
+  # Serviço da API (FastAPI)
   api:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: meu_corre_api
     ports:
-      - "0801:0801"
-    volumes: # Mapeia o código local para contêiner para live-reloading
+      - "8010:8010"   # usei 8010 (sem 0 à esquerda, pode dar erro em YAML)
+    volumes: # mapeia código local para live-reloading
       - ./backend:/app
-    environment: # variáveis ambiente para conectar ao banco de dados
+    environment: # variáveis ambiente
       - DATABASE_URL=postgresql://user:password@db:5432/mydatabase
     depends_on:
       - db
 
   # Serviço do Banco de Dados (PostgreSQL)
   db:
-    image: postgres:latest
+    image: postgres:15
     container_name: meu_corre_db
     environment:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=mydatabase
-    ports: # expõe a porta do DB para podemos conectar ao DBeaver
+    ports:
       - "5432:5432"
-    volumes: # Garante que os dados do banco não sejam perdidos ao reiniciar
+    volumes:
       - postgres_data:/var/lib/postgresql/data
 
-# Define o volume para persistência dos dados do banco
+# Volume persistente do banco
 volumes:
   postgres_data:

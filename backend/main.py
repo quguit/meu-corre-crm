@@ -21,6 +21,7 @@ def get_db():
     finally:
         db.close()
 
+
 @app.get("/clientes/{cliente_id}", response_model=schemas.Cliente)
 def read_one_cliente(cliente_id: int, db: Session = Depends(get_db)):
     """
@@ -53,6 +54,7 @@ def delete_one_cliente(cliente_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Cliente não encontrado")
     return deleted_cliente
 
+
 @app.post("/clientes/", response_model=schemas.Cliente, status_code=201)
 def create_new_cliente(cliente: schemas.ClienteCreate, db: Session = Depends(get_db)):
     """
@@ -71,6 +73,7 @@ def read_all_clientes(skip: int = 0, limit: int = 100, db: Session = Depends(get
     """
     clientes = crud.get_clientes(db, skip=skip, limit=limit)
     return clientes
+
 
 @app.get("/")
 def read_root():

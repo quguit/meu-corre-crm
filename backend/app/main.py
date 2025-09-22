@@ -14,6 +14,16 @@ app = FastAPI(
     version="0.1.0"
 )
 
+# Inclui as rotas
+app.include_router(clientes.router)
+app.include_router(veiculos.router)
+app.include_router(vendas.router)
+app.include_router(interacoes.router)
+
+@app.get("/")
+def root():
+    return {"status": "API no ar 🚀", "ambiente": "Docker"}
+
 # Função para obter uma sessão do banco de dados para cada requisição
 def get_db():
     db = SessionLocal()

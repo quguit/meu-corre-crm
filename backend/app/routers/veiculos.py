@@ -2,30 +2,29 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
 
-from .. import models, schemas
-from .. database import get_db
+from .. import schemas, models
+from ..database import get_db
 
 router = APIRouter(
     prefix="/veiculos",
-    tags=["veiculos"],
+    tags=["Veículos"]
 )
 
-# Rota para criar um novo veículo
+# Criar veículo
 @router.post("/", response_model=schemas.VeiculoOut, status_code=201)
 def create_veiculo(veiculo: schemas.VeiculoCreate, db: Session = Depends(get_db)):
-    db_veiculo = db.query(models.Veiculo).filter(models.Veiculo.placa == veiculo.placa).first()
-    if db_veiculo:
-        raise HTTPException(status_code=400, detail="Placa já cadastrada")
     novo_veiculo = models.Veiculo(**veiculo.dict())
     db.add(novo_veiculo)
     db.commit()
     db.refresh(novo_veiculo)
     return novo_veiculo
 
-# Listar veículos
+
+# Listar todos os veículos
 @router.get("/", response_model=List[schemas.VeiculoOut])
 def get_veiculos(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     return db.query(models.Veiculo).offset(skip).limit(limit).all()
+
 
 # Buscar veículo por ID
 @router.get("/{veiculo_id}", response_model=schemas.VeiculoOut)
@@ -34,6 +33,7 @@ def get_veiculo(veiculo_id: int, db: Session = Depends(get_db)):
     if not veiculo:
         raise HTTPException(status_code=404, detail="Veículo não encontrado")
     return veiculo
+
 
 # Atualizar veículo
 @router.put("/{veiculo_id}", response_model=schemas.VeiculoOut)
@@ -48,6 +48,7 @@ def update_veiculo(veiculo_id: int, update: schemas.VeiculoUpdate, db: Session =
     db.commit()
     db.refresh(veiculo)
     return veiculo
+
 
 # Deletar veículo
 @router.delete("/{veiculo_id}", response_model=schemas.VeiculoOut)

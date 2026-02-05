@@ -100,4 +100,3 @@ Sugestões, ideias e feedbacks são bem-vindos.
 Criado por **Guilherme Pereira Nascimento**, inspirado na vivência em vendas e no interesse em desenvolver soluções simples e úteis para o cotidiano profissional.
 
 ```
----

@@ -1,0 +1,49 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.5 Chrome/138.0.7204.251 Electron/37.6.1 Safari/537.36" version="28.2.5">
+  <diagram name="Página-1" id="3UIzfckAXzaUSZmdck9m">
+    <mxGraphModel dx="1084" dy="824" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="8-dq_Sxde-QENEPkegH1-1" value="Usuario" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="100" y="240" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8-dq_Sxde-QENEPkegH1-2" value="Gestor Leads" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="300" y="120" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8-dq_Sxde-QENEPkegH1-3" value="Clientes" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="90" y="340" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8-dq_Sxde-QENEPkegH1-4" value="Vendas" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="300" y="340" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8-dq_Sxde-QENEPkegH1-5" value="Leads" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="290" y="240" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8-dq_Sxde-QENEPkegH1-6" value="VendaConcluida" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="460" y="240" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8-dq_Sxde-QENEPkegH1-7" value="Gestor de vendas concluidas" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="460" y="120" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8-dq_Sxde-QENEPkegH1-8" value="Indicação" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="460" y="350" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8-dq_Sxde-QENEPkegH1-9" value="cliente indicado por" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="100" y="440" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8-dq_Sxde-QENEPkegH1-10" value="Seguros" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="290" y="440" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8-dq_Sxde-QENEPkegH1-11" value="Veículos" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="460" y="430" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8-dq_Sxde-QENEPkegH1-12" value="Veículos em espera" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="460" y="520" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8-dq_Sxde-QENEPkegH1-13" value="Veículos vendidos" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="290" y="520" width="110" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
